@@ -1,7 +1,7 @@
 {
-    "name": " اخبار السودان",
-    "short_name": "اخبار السودان",
-    "start_url": "/index.html",
+    "name": " انا السودان",
+    "short_name": "انا السودان",
+    "start_url": "/Ana-alsudan",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#000000",
