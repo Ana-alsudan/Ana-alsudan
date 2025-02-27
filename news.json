@@ -1,0 +1,14 @@
+[
+    {
+        "title": "jjjjjj",
+        "description": "وصف الخبر 1",
+        "image": "image1.jpg",
+        "link": "page1.html"
+    },
+    {
+        "title": "خبر 2",
+        "description": "وصف الخبر 2",
+        "image": "image2.jpg",
+        "link": "page2.html"
+    }
+]

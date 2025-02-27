@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة خبر جديد</title>
+</head>
+<body>
+    <h1>إضافة خبر جديد</h1>
+    <form id="newsForm">
+        <label for="title">العنوان:</label>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="description">الوصف:</label>
+        <textarea id="description" name="description" required></textarea><br><br>
+
+        <label for="image">رابط الصورة:</label>
+        <input type="text" id="image" name="image" required><br><br>
+
+        <label for="link">رابط الخبر:</label>
+        <input type="text" id="link" name="link" required><br><br>
+
+        <button type="submit">إضافة الخبر</button>
+    </form>
+
+    <script>
+        document.getElementById('newsForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            const image = document.getElementById('image').value;
+            const link = document.getElementById('link').value;
+
+            // هنا يتم تحديث ملف JSON يدويًا أو عبر أداة خارجية
+            alert('تم إضافة الخبر بنجاح. يرجى تحديث ملف JSON يدويًا!');
+        });
+    </script>
+</body>
+</html>

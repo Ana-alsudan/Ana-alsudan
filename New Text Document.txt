@@ -1,0 +1,261 @@
+if (window.matchMedia('(display-mode: standalone)').matches) {
+    // الموقع يُعرض كـ "تطبيق ويب"
+}
+ else {
+    // الموقع يُعرض في المتصفح
+    window.addEventListener('load', function() {
+        if (!window.navigator.standalone) {
+            // يمكن إضافة إشعار للمستخدم بتثبيت التطبيق
+        }
+    });
+}
+
+// قائمة الأخبار المباشرة);
+// قائمة الأخبار المباشرة
+const liveEvents = [
+    "🚨 زلزال قوي يضرب اليابان!",
+    "🎤 مؤتمر صحفي للرئيس الآن",
+    "⚽ مباراة الكلاسيكو مستمرة!",
+    "🔥 اندلاع حريق ضخم في مصنع",
+    "💰 ارتفاع أسعار النفط عالميًا!"
+];
+
+let liveIndex = 0;
+
+// تحديث الخبر المباشر كل 30 ثانية
+function updateLiveEvent() {
+    const liveEvent = document.getElementById("live-event");
+    liveEvent.innerText = liveEvents[liveIndex];
+
+    // إعادة تشغيل الأنيميشن عند تغيير النص
+    liveEvent.style.animation = "none";
+    setTimeout(() => {
+        liveEvent.style.animation = "moveText 10s linear infinite";
+    }, 10);
+
+    liveIndex = (liveIndex + 1) % liveEvents.length;
+}
+
+// تنفيذ التحديث الأولي عند تحميل الصفحة
+document.addEventListener("DOMContentLoaded", updateLiveEvent);
+
+// تحديث كل 30 ثانية
+setInterval(updateLiveEvent, 30000);
+// بيانات الأخبار
+const newsData = [
+    { 
+        title: 'السيطره على الدعم السريع', 
+        description: 'تم السيطر على مواقع....', 
+        image: 'img/IMG_٢٠٢٥٠٢٢٣_٢١٥٥٠٩_(600_x_600_pixel).jpg', 
+        link: 'home news/news1.html' 
+    },
+    { 
+        title: 'القطينه كاكي اخضر', 
+        description: 'اعلن قائد من....', 
+        image: 'img/IMG_٢٠٢٥٠٢٢٣_٢١٥٤٥٥_(600_x_600_pixel).jpg', 
+        link: 'home news/news2.html' 
+    },
+    { 
+        title: 'شرق النيل اليوم', 
+        description: 'نشر جنود من الجيش السوداني....', 
+        image: 'img/IMG_٢٠٢٥٠٢٢٣_٢١٥٤٤٠_(600_x_600_pixel).jpg', 
+        link: 'home news/news3.html' 
+    },
+    { 
+        title: 'قصف جوي استهدف', 
+        description: 'قص جوي عنيف استهدف اليات.....', 
+        image: 'img/IMG_٢٠٢٥٠٢٢٣_٢١٥٤٤٠_(600_x_600_pixel).jpg', 
+        link: 'home news/news4.html' 
+    },
+    { 
+        title: 'فلم الدشاش', 
+        description: ' ...فيلم الدشاش يحقق 281 ألف جنيه ليلة السبت في السينمات', 
+        image: 'img/202501150337163716.webp', 
+        link: 'home news/news5.html' 
+    },
+    { 
+        title: 'السيطره على الدعم السريع', 
+        description: 'تم السيطر على مواقع....', 
+        image: 'img/IMG_٢٠٢٥٠٢٢٣_٢١٥٥٠٩_(600_x_600_pixel).jpg',  
+        link: 'home news/news6.html' 
+    },
+{ 
+    title: 'القطينه كاكي اخضر', 
+    description: 'اعلن قائد من....', 
+    image: 'img/IMG_٢٠٢٥٠٢٢٣_٢١٥٤٥٥_(600_x_600_pixel).jpg', 
+        link: 'home news/news7.html' 
+    },
+{ 
+    title: 'شرق النيل اليوم', 
+    description: 'نشر جنود من الجيش السوداني....', 
+    image: 'img/IMG_٢٠٢٥٠٢٢٣_٢١٥٤٤٠_(600_x_600_pixel).jpg', 
+    link: 'home news/news8.html' 
+    },
+{ 
+    title: 'قصف جوي استهدف', 
+    description: 'قص جوي عنيف استهدف اليات.....', 
+    image: 'img/IMG_٢٠٢٥٠٢٢٣_٢١٥٤٤٠_(600_x_600_pixel).jpg', 
+    link: 'home news/news9.html' 
+    },
+{ 
+        title: 'فلم الدشاش', 
+        description: ' ...فيلم الدشاش يحقق 281 ألف جنيه ليلة السبت في السينمات', 
+        image: 'img/202501150337163716.webp', 
+         
+        link: 'home news/news10.html' 
+    },
+];
+
+// عرض الأخبار في الصفحة
+const newsContainer = document.getElementById('news-container');
+
+newsData.forEach((news) => {
+    const newsItem = document.createElement('div');
+    newsItem.classList.add('news-item');
+    newsItem.innerHTML = `
+        <img src="${news.image}" alt="${news.title}">
+        <h2>${news.title}</h2>
+        <p>${news.description}</p>
+        <a href="${news.link}" class="read-more">قراءة المزيد</a>
+    `;
+    newsContainer.appendChild(newsItem);
+});
+
+// شريط الأخبار المتحرك
+const tickerContent = document.getElementById('ticker-content');
+tickerContent.textContent = newsData.map(news => news.title).join(' | ');
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <!-- اسم التطبيق -->
+    <meta name="apple-mobile-web-app-title" content="اخبار السودان">
+    <meta name="متجر الأمل" content="اخبار السودان">
+    <!-- تحديد أيقونة الموقع -->
+    <link rel="icon" href="img/IMG_٢٠٢٥٠٢٢٣_٢٣٤٤٢٣_(192_x_192_pixel).jpg">
+    
+    <!-- للـ Android (Web App) -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="img/IMG_٢٠٢٥٠٢٢٣_٢٣٤٤٢٣_(192_x_192_pixel).jpg">
+    <link rel="icon" sizes="192x192" href="img/IMG_٢٠٢٥٠٢٢٣_٢٣٤٤٢٣_(192_x_192_pixel).jpg">
+    <!-- للـ iOS -->
+    <link rel="apple-touch-icon" href="icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- إعدادات الشاشة -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>منصة انا السودان الاخباريه</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://via.placeholder.com/32x32.png?text=Logo" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="img/IMG_٢٠٢٥٠٢٢٣_١٨٤٧٣٩_(150_x_150_pixel).jpg" alt="شعار الموقع">
+                <h1>منصة انا السودان الاخباريه</h1>
+            </div>
+            <!-- شريط الأيقونات الاجتماعية -->
+
+        </div>
+    </header>
+
+    <!-- شريط الفئات مع الحركة من اليسار إلى اليمين -->
+    <div class="categories-bar">
+        <div class="container">
+            <ul>
+                <li><a href="alcica/alcica.html">السياسه</a></li>
+                <li><a href="sports/sport.html">الرياضه</a></li>
+                <li><a href="economy/econ.html">الاقتصاد</a></li>
+                <li><a href="art/art.html">الفن</a></li>
+                <li><a href="religous/reli.html">الدين</a></li>
+                
+                
+            </ul>
+        </div>
+    </div>
+
+    <div class="news-ticker">
+        <div id="ticker-content">
+            <!-- الأخبار ستظهر هنا عبر JavaScript -->
+        </div>
+    </div>
+
+   <!-- تغطية مباشرة ثابتة -->
+<!-- تغطية مباشرة -->
+<!-- تغطية مباشرة -->
+<!-- تغطية مباشرة -->
+<!-- تغطية مباشرة -->
+<!-- تغطية مباشرة -->
+<!-- تغطية مباشرة -->
+    <!-- تغطية مباشرة -->
+<div class="live-coverage">
+    <h2 class="pulse">مباشر</h2>
+    <div class="live-text">
+        <p id="live-event">جارٍ تحميل الأخبار...</p>
+    </div>
+</div>
+    
+    <!-- عنوان جانبي "أخبار اليوم" -->
+<!-- عنوان جانبي "أخبار اليوم" -->
+<div class="today-news-title">
+    <h2 class="pulse">اخر الاخبار</h2>
+</div>
+
+<!-- أخبار اليوم (مكان الأخبار الرئيسية) -->
+
+<!-- أخبار اليوم (مكان الأخبار الرئيسية) -->
+    <!-- هنا تأتي الأخبار -->
+    <div class="news-container" id="news-container">
+        <!-- الأخبار ستظهر هنا عبر JavaScript -->
+    </div>
+
+    <script src="script.js"></script>
+    
+ <!-- إضافة رابط مكتبة Font Awesome في الـ head -->
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <!-- العنوان الجديد "منصة أنا السودان الإخبارية" -->
+        <h3 class="footer-title">منصة أنا السودان الإخبارية</h3>
+        
+        <!-- نص "تابعنا على:" -->
+        <p>تابعنا على:</p>
+        
+        <div class="social-icons">
+            <a href="https://wa.me/your-number" target="_blank" class="social-icon">
+                <i class="fab fa-whatsapp"></i> 
+                <span>واتساب</span>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                <i class="fab fa-facebook-f"></i> 
+                <span>فيسبوك</span>
+            </a>
+            <a href="https://t.me/your-username" target="_blank" class="social-icon">
+                <i class="fab fa-telegram-plane"></i>
+                <span>تليغرام</span>
+            </a>
+            <a href="https://www.tiktok.com" target="_blank" class="social-icon">
+                <i class="fab fa-tiktok"></i>
+                <span>تيك توك</span>
+            </a>
+            <a href="https://www.youtube.com" target="_blank" class="social-icon">
+                <i class="fab fa-youtube"></i>
+                <span>يوتيوب</span>
+            </a>
+        </div>
+        <p>كل الأخبار لحظة بلحظة. انضم إلينا!</p>
+    </div>
+</footer>
+</body>
+</html>
